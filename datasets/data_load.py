@@ -18,7 +18,7 @@ def create_connection():
    return cursor,conn
 
 # Module to truncate the table if exists. This will ensure duplicate load doesn't happen
-def tuncate_table():
+def truncate_table():
    cur,conn=create_connection()
    sql_titles = "TRUNCATE TABLE IF EXISTS TITLES_RAW"
    sql_credits = "TRUNCATE TABLE IF EXISTS CREDITS_RAW"
@@ -52,7 +52,7 @@ def load_data():
    conn.close()
 
 print("Starting Script")
-tuncate_table()
+truncate_table()
 load_data()
 
 
