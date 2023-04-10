@@ -12,7 +12,7 @@ def create_connection():
    account="snowflake account",
    warehouse="DEMO_WH",
    database="DEMO_DB",
-   schema="DBT")
+   schema="DBT_RAW")
    cursor = conn.cursor()
    print('SQL Connection Created')
    return cursor,conn
@@ -31,7 +31,7 @@ def load_data():
    cur,conn=create_connection()
    titles_file = r"C:/Users/Aditya/OneDrive/Desktop/dbt_Training/Netflix_Dataset/titles.csv" # <- Replace with your path.
    titles_delimiter = "," # Replace if you're using a different delimiter.
-   credits_file=r"C:/Users/Aditya/OneDrive/Desktop/dbt_Training/Netflix_Dataset/credits.csv"
+   credits_file=r"C:/Users/Aditya/OneDrive/Documents/GitHub/dbt-code/datasets/credits.csv"
    credits_delimiter=","
 
    titles_df = pd.read_csv(titles_file, sep = titles_delimiter)
@@ -39,9 +39,9 @@ def load_data():
    credits_df = pd.read_csv(credits_file, sep = titles_delimiter)
    print("Credits file read")
 
-   write_pandas(conn, titles_df, "TITLES_RAW",auto_create_table=True)
+   write_pandas(conn, titles_df, "TITLES",auto_create_table=True)
    print('Titles file loaded')
-   write_pandas(conn, credits_df, "CREDITS_RAW",auto_create_table=True)
+   write_pandas(conn, credits_df, "CREDITS",auto_create_table=True)
    print('Credits file loaded')
 
    cur = conn.cursor()
