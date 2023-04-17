@@ -1,5 +1,5 @@
 {{ config(
-    pre_hook="ALTER SESSION SET QUOTED_IDENTIFIERS_IGNORE_CASE = true" 
+    pre_hook="ALTER SESSION SET QUOTED_IDENTIFIERS_IGNORE_CASE = true"
 ) }}
 
 SELECT 

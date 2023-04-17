@@ -1,5 +1,6 @@
 {{ config(
-    pre_hook="ALTER SESSION SET QUOTED_IDENTIFIERS_IGNORE_CASE = true" 
+    pre_hook="ALTER SESSION SET QUOTED_IDENTIFIERS_IGNORE_CASE = true",
+    post_hook="GRANT SELECT ON TABLE {{ this }} TO ROLE TEST_DBT_ROLE"  
 ) }}
 
 SELECT
@@ -10,4 +11,4 @@ ID
 ,TMDB_POPULARITY
 ,TMDB_SCORE
 FROM
-PROD.DBT_RAW.TITLES
+{{ source('netflix', 'TITLES') }}
