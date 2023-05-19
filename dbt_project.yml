@@ -44,3 +44,6 @@ models:
             
 vars:
     titles_raw: 'PROD.DBT_RAW.TITLES'
+    TAG_DIMENSION: 'DIMENSION'
+    TAG_FACT: 'FACT'
+    TAG_TEST: 'TEST'  

@@ -3,6 +3,10 @@
     post_hook="GRANT SELECT ON TABLE {{ this }} TO ROLE TEST_DBT_ROLE"  
 ) }}
 
+{{ config(
+    tags=[var('TAG_DIMENSION')]
+) }}
+
 SELECT
 ID
 ,IMDB_ID
