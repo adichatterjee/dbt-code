@@ -44,6 +44,7 @@ models:
         stock_market:
         #Config indicated by + and applies to all files under models/example/
             staging:
+                +schema: stock_market
                 +materialized: table
             fact:
                 +materialized: table
