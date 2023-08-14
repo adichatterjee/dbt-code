@@ -2,12 +2,12 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'netflix_project'
-version: '1.0.0'
+name: 'Analytics'
+version: '1.4.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'Netflix'
+profile: ''
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -32,7 +32,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
 models:
-    netflix_project:
+    Analytics:
         netflix:
         #Config indicated by + and applies to all files under models/example/
             stage:
@@ -41,9 +41,21 @@ models:
                 +materialized: table
             fact:
                 +materialized: table
-            
+        stock_market:
+        #Config indicated by + and applies to all files under models/example/
+            staging:
+                +materialized: table
+            fact:
+                +materialized: table
+
+
+                
 vars:
     titles_raw: 'PROD.DBT_RAW.TITLES'
     TAG_DIMENSION: 'DIMENSION'
     TAG_FACT: 'FACT'
-    TAG_TEST: 'TEST'  
+    TAG_TEST: 'TEST'
+    TAG_FACT_STOCKS: 'FACT'
+    TAG_STAGE_STOCKS: 'STAGE'
+    TAG_TEST_STOCKS: 'TEST'
+
