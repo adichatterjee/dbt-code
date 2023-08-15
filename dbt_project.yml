@@ -47,6 +47,7 @@ models:
                 +schema: stock_market
                 +materialized: table
             fact:
+                +schema: stock_market
                 +materialized: table
 
 
